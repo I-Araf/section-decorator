@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Section Decorator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="sparkle-bg" aria-hidden="true">
+    <span class="orb orb-one"></span>
+    <span class="orb orb-two"></span>
+    <span class="orb orb-three"></span>
+    <span class="orb orb-four"></span>
+  </div>
+
+  <main class="app-shell">
+    <section id="introPage" class="page intro-page active-page">
+      <div class="hero-card glass-card pop-in">
+        <div class="logo-bubble">🎨</div>
+        <p class="eyebrow">Smart • Colorful • Conflict Free</p>
+        <h1>Welcome to your Section Decorator</h1>
+        <p class="hero-text">
+          Decorate your semester plan with course name, day, schedule, section, and faculty name.
+          The app will warn you with an alarm if course times conflict.
+        </p>
+        <button id="createPlanBtn" class="floating-btn primary-btn">Create Plan 🚀</button>
+      </div>
+
+      <div class="cute-strip" aria-hidden="true">
+        <span>📚</span><span>✨</span><span>🧸</span><span>🌈</span><span>🪄</span>
+      </div>
+    </section>
+
+    <section id="plannerPage" class="page planner-page">
+      <header class="planner-header glass-card">
+        <div>
+          <p class="eyebrow">Section Decorator</p>
+          <h2>Course Plan Table</h2>
+          <p class="header-note">Add your courses below. Conflicting courses will glow red and play an alarm sound.</p>
+        </div>
+        <button id="backBtn" class="floating-btn ghost-btn">← Intro</button>
+      </header>
+
+      <section class="form-card glass-card">
+        <h3>Add Course Data</h3>
+        <form id="courseForm" autocomplete="off">
+          <label>
+            <span>Course Name</span>
+            <input id="courseName" type="text" placeholder="Theory of Computation" required />
+          </label>
+          <label>
+            <span>Day Name</span>
+            <input id="dayName" type="text" placeholder="Sunday and Wednesday" required />
+          </label>
+          <label>
+            <span>Schedule</span>
+            <input id="schedule" type="text" placeholder="8:30 AM to 11:10 AM" required />
+          </label>
+          <label>
+            <span>Section Name</span>
+            <input id="sectionName" type="text" placeholder="E" required />
+          </label>
+          <label>
+            <span>Faculty Name</span>
+            <input id="facultyName" type="text" placeholder="Fairuz Anika" required />
+          </label>
+          <button type="submit" class="floating-btn add-btn">Add Course ➕</button>
+        </form>
+        <p class="format-tip">Schedule format: <strong>HH:MM to HH:MM</strong> or <strong>8:30 AM to 11:10 AM</strong>.</p>
+      </section>
+
+      <section id="conflictPanel" class="conflict-panel hidden" role="alert" aria-live="polite">
+        <div class="alarm-icon">🚨</div>
+        <div>
+          <h3>Time Conflict Alarm!</h3>
+          <p id="conflictMessage"></p>
+        </div>
+      </section>
+
+      <section class="table-card glass-card">
+        <div class="table-toolbar">
+          <div>
+            <h3>Your Decorated Course Plan</h3>
+            <p id="courseCounter">No courses added yet.</p>
+          </div>
+          <div class="toolbar-actions">
+            <button id="sampleBtn" class="floating-btn small-btn">Add Sample ✨</button>
+            <button id="clearBtn" class="floating-btn small-btn danger-soft">Clear All 🧹</button>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Course Name</th>
+                <th>Day Name</th>
+                <th>Schedule</th>
+                <th>Section Name</th>
+                <th>Faculty Name</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="courseTableBody">
+              <tr class="empty-row">
+                <td colspan="6">Your colorful course plan will appear here 🌟</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="complete-area">
+          <button id="completeBtn" class="floating-btn complete-btn">Complete ✅</button>
+          <button id="downloadPdfBtn" class="floating-btn pdf-btn hidden">Download the PDF version of your plan 📄</button>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <div id="toast" class="toast hidden"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
